@@ -1,0 +1,78 @@
+=head1 NAME
+
+WWW::CheckPad::CheckIte - A class to control check item of check*pad.
+
+=head1 SYNOPSIS
+
+See the WWW::CheckPad
+
+=head1 DESCRIPTION
+
+check*padのTodo項目を扱う為のクラスです。APIは極力Class::DBIと
+同様のインターフェースを持つように設計されています。
+
+=head2 Class Method
+
+=head3 retrieve_all_of
+
+  my @checkitems = WWW::CheckPad::CheckItem->retrieve_all_of($chechlist_id);
+
+C<retrieve_all_of>は与えられたチェックリストの全Todo項目を返します。
+通常、このメソッドを直接呼ぶ必要はありません。代わりに
+C<WWW::CheckList->checkitems()>で同様に、しかもきれいに書くことが出来ます。
+
+
+=head2 Instance Method
+
+=head3 update
+
+  $checkitem->update();
+
+このメソッドを呼ぶとこのTodo項目の情報をアップデートします。現在、変更できる
+値亜はタイトルだけなので、次のように使うことが多いと思います。
+
+  $checkitem->title('update title'); ## update the title
+  $checkitem->update();
+
+=head3 delete
+
+  $checkitem->delete();
+
+このTodo項目を削除します。
+
+=head3 finish
+
+  $checkitem->finish();
+
+このTodo項目の状態を”終了”にします。これは即座に反映されます。
+
+=head3 unfinish
+
+  $checkitem->unfinish();
+
+このTodo項目の状態を”未終了”にします。これは即座に反映されます。
+
+=head1 SEE ALSO
+
+WWW::CheckPad
+
+WWW::CheckPad::CheckList
+
+
+=head1 AUTHOR
+
+Ken Takeshige, E<lt>ken.takeshige@gmail.comE<gt>
+
+http://d.hatena.ne.jp/ya_ken/
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright (C) 2006 by Ken Takeshige
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself, either Perl version 5.8.6 or,
+at your option, any later version of Perl 5 you may have available.
+
+=cut
+
+
