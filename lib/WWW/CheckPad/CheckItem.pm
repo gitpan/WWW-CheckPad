@@ -255,7 +255,7 @@ __END__
 
 =head1 NAME
 
-WWW::CheckPad::CheckIte - A class to control check item of check*pad.
+WWW::CheckPad::CheckItem - A class to control check item of check*pad.
 
 =head1 SYNOPSIS
 

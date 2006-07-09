@@ -42,6 +42,19 @@ C<retrieve>は$checklist_idで指定されたチェックリストを返しま�
 
 =head2 Instance Method
 
+=head3 id
+
+  my $checklist_id = $checklist->id();
+
+チェックリストのIDを返す。
+
+=head3 title
+
+  my $checklist_title = $checklist->title();
+  $checklist->title('title of checklist');
+
+チェックリストのタイトルを返す。引数を与えた時はチェックリストのタイトルを変更する。
+
 =head3 update
 
   $checklist->update();
