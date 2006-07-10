@@ -67,7 +67,7 @@ C<retrieve_all>ではすべてが取得されてしまいますが、C<retrieve>
 あるので、それを利用して、C<grep>することが出来る。逆に終了済み一覧が欲しければもちろん
 こうやって書く事が出来る。
 
-  my @unfinished_items = grep { $_->is_finished() } $checklist->checkitems();
+  my @finished_items = grep { $_->is_finished() } $checklist->checkitems();
 
 =head2 終了していないチェック項目をすべて終了させる。
 
@@ -86,11 +86,11 @@ C<retrieve_all>ではすべてが取得されてしまいますが、C<retrieve>
 
 =head1 SEE ALSO
 
-L<WWW::Mixi>, L<LWP::UserAgent>, L<WWW::RobotUA>, L<HTTP::Request::Common>
+L<WWW::CheckPad>, L<WWW::CheckPad::CheckList>, L<WWW::CheckPad::CheckItem>
 
 =head1 COPYRIGHT
 
-Copyright 2004-2004 TSUKAMOTO Makio.
+Copyright 2006 Ken Takeshige
 
 This text is free document; you can redistribute it and/or
 modify it under the same terms as Perl itself.

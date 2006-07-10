@@ -9,25 +9,28 @@ use WWW::CheckPad::CheckItem;
 
 ## Connec to check*pad server and login.
 my $connection = WWW::CheckPad->connect(
-    email => '',
-    password => '',
+    email => $ARGV[0],
+    password => $ARGV[1],
 );
 
 print "LOGIN FAILED\n" if not $connection->has_logged_in();
 
-# foreach my $checklist (WWW::CheckPad::CheckList->retrieve_all) {
-#     foreach my $checkitem ($checklist->checkitems) {
-#         if ($checkitem->is_finished()) {
-#             my ($year, $month, $date) =
-#                 (localtime($checkitem->finished_time()))[5, 4, 3];
-#             printf " * [%s] %s (%s)\n", $checklist->title, $checkitem->title,
-#                 sprintf("%s/%s/%s", $year+1900, $month+1, $date);
-#         }
-#         else {
-#             printf "   [%s] %s\n", $checklist->title, $checkitem->title;
-#         }
-#     }
-# }
+ foreach my $checklist (WWW::CheckPad::CheckList->retrieve_all) {
+     foreach my $checkitem ($checklist->checkitems) {
+         if ($checkitem->is_finished()) {
+             my ($year, $month, $date) =
+                 (localtime($checkitem->finished_time()))[5, 4, 3];
+             printf " * [%s] %s (%s)\n", $checklist->title, $checkitem->title,
+                 sprintf("%s/%s/%s", $year+1900, $month+1, $date);
+         }
+         else {
+             printf "   [%s] %s\n", $checklist->title, $checkitem->title;
+         }
+     }
+     return;
+ }
+return;
+
 
 ## Add new checklist.
 my $new_checklist = WWW::CheckPad::CheckList->insert({

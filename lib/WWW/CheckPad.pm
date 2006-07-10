@@ -14,7 +14,7 @@ __PACKAGE__->mk_accessors(qw(ua
                              has_logged_in
                          ));
 
-our $VERSION = '0.034';
+our $VERSION = '0.035';
 
 our $connection;
 

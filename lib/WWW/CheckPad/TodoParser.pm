@@ -87,17 +87,16 @@ sub text {
         if ($self->param('in_finished_date_span') and
             $text =~ /\(([0-9]+)(.*)\)/) {
 
-#            printf "[debug] %s >> %s : %s\n", $text, $1, $2;
-#                WWW::CheckPad->_jconvert($2);
-
             my $time_diff = $1 * $time_calc_map{$2};
-
 
             $todo->{finished_time} = time - $time_diff;
             return;
         }
+        # This is delete button ([x]).
+        elsif ($text =~ /\[x\]/) {
+            return;
+        }
 
-#        $self->_add_todo($self->param('current_finished_id'), $text, 1);
         $todo->{title} .= $text;
         
     }
